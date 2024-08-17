@@ -23,12 +23,12 @@ function resizeCanvas () {
 
 
 class Particles {
-  constructor (x, y, ctx) {
+  constructor (x, y, ctx, dir) {
     this.x = x;
     this.y = y;
     this.size = 5;
     this.ctx = ctx;
-    this.dir = 0;
+    this.dir = dir;
     this.speed = 4;
   }
   spawn () {
@@ -38,6 +38,8 @@ class Particles {
     this.ctx.fill();
   }
   update () {
+    this.x += this.dir[0] == '+' ? this.speed : -this.speed;
+    this.y += this.dir[1] == '+' ? this.speed : -this.speed;
   }
 }
 var particleCount = 500;
@@ -49,7 +51,8 @@ function spawnParticles () {
   for(let i = 0; i < particleCount; i++){
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
-    particles.push(new Particles(x, y, ctx));
+    const dir = [(Math.random() < 0.5?"+":"-"), (Math.random() < 0.5?"+":"-")]
+    particles.push(new Particles(x, y, ctx, dir));
   }
 }
 
