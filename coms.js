@@ -20,7 +20,12 @@ function resizeCanvas () {
   canvas.style.height = screenHeight + "px";
   canvas.style.width = screenWidth + "px";
 }
-
+let mouseX = 0;
+let mouseY = 0;
+window.addEventListener("mousemove", event => {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+});
 
 class Particles {
   constructor (x, y, ctx, dir, speed) {
@@ -50,6 +55,16 @@ class Particles {
         this.ctx.lineWidth = 1;
         this.ctx.beginPath();
         this.ctx.moveTo(this.x, this.y);
+        this.ctx.lineTo(ptl.x, ptl.y);
+        this.ctx.stroke();
+      }
+      let dist2 = getDistance(mouseX, mouseY, ptl.x, ptl.y);
+      if(dist2 < 450){
+        let opacity = (1-(dist2/450)) * 0.5
+        this.ctx.strokeStyle = "rgba(255, 255, 255," + opacity + ")";
+        this.ctx.lineWidth = 1;
+        this.ctx.beginPath();
+        this.ctx.moveTo(mouseX, mouseY);
         this.ctx.lineTo(ptl.x, ptl.y);
         this.ctx.stroke();
       }
