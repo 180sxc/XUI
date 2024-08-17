@@ -45,7 +45,8 @@ class Particles {
       };
       let dist = getDistance(this.x, this.y, ptl.x, ptl.y);
       if(dist < 450){
-        this.ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+        let opacity = (1-(dist/450)) * 0.5
+        this.ctx.strokeStyle = "rgba(255, 255, 255," + opacity + ")";
         this.ctx.lineWidth = 1;
         this.ctx.beginPath();
         this.ctx.moveTo(this.x, this.y);
@@ -94,7 +95,7 @@ class Particles {
     return ra(possibilities);
   }
 }
-var particleCount = 250;
+var particleCount = 450;
 var particles = [];
 
 function spawnParticles () {
