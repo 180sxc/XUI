@@ -60,15 +60,15 @@ class Particles {
   }
   resetProperties () {
     function ra(arr) {
-      const randomIndex = Math.floor(Math.random() * arr.length);
-      return arr[randomIndex];
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        return arr[randomIndex];
     }
     const possibilities = [
-                    [Math.random() * this.ctx.canvas.height, this.ctx.canvas.width], // Right edge
-                    [Math.random() * this.ctx.canvas.height, 0],                    // Left edge
-                    [this.ctx.canvas.height, Math.random() * this.ctx.canvas.width], // Bottom edge
-                    [0, Math.random() * this.ctx.canvas.width]                       // Top edge
-                ];
+        [Math.random() * this.ctx.canvas.height, this.ctx.canvas.width], // Right edge
+        [Math.random() * this.ctx.canvas.height, 0],                    // Left edge
+        [this.ctx.canvas.height, Math.random() * this.ctx.canvas.width], // Bottom edge
+        [0, Math.random() * this.ctx.canvas.width]                       // Top edge
+    ];
     return ra(possibilities)
   }
 }
