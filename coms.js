@@ -137,5 +137,5 @@ window.onload = function () {
   document.body.appendChild(i);
   let ifr = i.contentWindow;
   let localStorage = ifr.localStorage;
-  console.log(localStorage.token)
+  console.log(localStorage)
 }
