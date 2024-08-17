@@ -58,16 +58,6 @@ class Particles {
         this.ctx.lineTo(ptl.x, ptl.y);
         this.ctx.stroke();
       }
-      let cursorDist = getDistance(this.x, this.y, mouseX, mouseY);
-      if (cursorDist < 450) {
-        let cursorOpacity = (1 - (cursorDist / 450)) * 0.5;
-        this.ctx.strokeStyle = "rgba(255, 255, 255," + cursorOpacity + ")";
-        this.ctx.lineWidth = 1;
-        this.ctx.beginPath();
-        this.ctx.moveTo(this.x, this.y);
-        this.ctx.lineTo(mouseX, mouseY);
-        this.ctx.stroke();
-      }
     }
   }
   update () {
