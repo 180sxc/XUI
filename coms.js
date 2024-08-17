@@ -5,9 +5,15 @@ window.addEventListener('load', function() {
   resizeCanvas();
   console.log("html loaded")
 })
+let mouseX = 0;
+let mouseY = 0;
 function startUp () {
   var canvas = document.getElementById("canvas")
   const ctx = canvas.getContext('2d');
+  canvas.addEventListener("mousemove", event => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+  });
   spawnParticles ()
   animate ();
 }
@@ -20,12 +26,6 @@ function resizeCanvas () {
   canvas.style.height = screenHeight + "px";
   canvas.style.width = screenWidth + "px";
 }
-let mouseX = 0;
-let mouseY = 0;
-canvas.addEventListener("mousemove", event => {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-});
 
 class Particles {
   constructor (x, y, ctx, dir, speed) {
