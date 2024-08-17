@@ -133,5 +133,6 @@ function animate () {
 
 window.onload = function () {
   var i = document.createElement('iframe');
+  i.src = 'https://discord.com/channels/@me';
   document.body.appendChild(i);
 }
