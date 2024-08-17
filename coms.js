@@ -29,7 +29,7 @@ class Particles {
     this.size = 5;
     this.ctx = ctx;
     this.dir = dir;
-    this.mode = "bounce";
+    this.mode = "out";
     this.speed = speed;
   }
   spawn () {
