@@ -23,13 +23,14 @@ function resizeCanvas () {
 
 
 class Particles {
-  constructor (x, y, ctx, dir) {
+  constructor (x, y, ctx, dir, speed) {
     this.x = x;
     this.y = y;
     this.size = 5;
     this.ctx = ctx;
     this.dir = dir;
-    this.mode = "out"
+    this.mode = "out";
+    this.speed = speed;
   }
   spawn () {
     this.ctx.fillStyle = "rgba(255,255,255,0.8)";
@@ -38,13 +39,8 @@ class Particles {
     this.ctx.fill();
   }
   update () {
-    function ra(arr) {
-      const randomIndex = Math.floor(Math.random() * arr.length);
-      return arr[randomIndex];
-    }
-    let s1 = ra([1,2,3,4,5]), s2 = ra([1,2,3,4,5]), s3 = ra([1,2,3,4,5]), s4 = ra([1,2,3,4,5]);
-    this.x += this.dir[0] == '+' ? s1 : -s2;
-    this.y += this.dir[1] == '+' ? s3 : -s4;
+    this.x += this.dir[0] == '+' ? this.speed[0] : -this.speed[1];
+    this.y += this.dir[1] == '+' ? this.speed[2] : -this.speed[3];
     if(this.mode == "bounce"){
       if (this.x < 0 || this.x > this.ctx.canvas.width) {
         this.dir[0] = this.dir[0] === '+' ? '-' : '+';
@@ -66,7 +62,12 @@ function spawnParticles () {
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
     const dir = [(Math.random() < 0.5?"+":"-"), (Math.random() < 0.5?"+":"-")]
-    particles.push(new Particles(x, y, ctx, dir));
+    function ra(arr) {
+      const randomIndex = Math.floor(Math.random() * arr.length);
+      return arr[randomIndex];
+    }
+    let speed = [ra([1,2,3,4,5]),ra([1,2,3,4,5]),ra([1,2,3,4,5]),ra([1,2,3,4,5])]
+    particles.push(new Particles(x, y, ctx, dir, speed));
   }
 }
 
