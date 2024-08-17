@@ -26,7 +26,7 @@ class Particles {
   constructor (x, y, ctx, dir, speed) {
     this.x = x;
     this.y = y;
-    this.size = 5;
+    this.size = Math.random() * 5;
     this.ctx = ctx;
     this.dir = dir;
     this.mode = "out";
