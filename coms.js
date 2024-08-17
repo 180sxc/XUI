@@ -44,7 +44,7 @@ class Particles {
         return Math.sqrt((x2 -= x1) * x2 + (y2 -= y1) * y2);
       };
       let dist = getDistance(this.x, this.y, ptl.x, ptl.y);
-      if(dist < 150){
+      if(dist < 450){
         this.ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
         this.ctx.lineWidth = 1;
         this.ctx.beginPath();
