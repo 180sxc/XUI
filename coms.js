@@ -52,6 +52,12 @@ class Particles {
       if ((this.x < 0 || this.x > this.ctx.canvas.width) || (this.y < 0 || this.y > this.ctx.canvas.height)) {
         this.x = this.resetProperties()[0];
         this.y = this.resetProperties()[1];
+        this.dir = [(Math.random() < 0.5?"+":"-"), (Math.random() < 0.5?"+":"-")];
+        function ra(arr) {
+          const randomIndex = Math.floor(Math.random() * arr.length);
+          return arr[randomIndex];
+        }
+        this.speed = [ra([1,2,3,4,5]),ra([1,2,3,4,5]),ra([1,2,3,4,5]),ra([1,2,3,4,5])]
       }
     }
   }
@@ -69,10 +75,10 @@ class Particles {
         [this.ctx.canvas.height, Math.random() * this.ctx.canvas.width], // Bottom edge
         [0, Math.random() * this.ctx.canvas.width]                       // Top edge
     ];
-    return ra(possibilities)
+    return ra(possibilities);
   }
 }
-var particleCount = 500;
+var particleCount = 150;
 var particles = [];
 
 function spawnParticles () {
