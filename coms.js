@@ -79,21 +79,21 @@ class Particles {
       }
     }
   }
-  newPos () {
-    
+  newPos (edge) {
+    if (edge === 'left') {
+        return [Math.random() * this.ctx.canvas.height, 0]; // Random Y, X = 0
+    } else if (edge === 'right') {
+        return [Math.random() * this.ctx.canvas.height, this.ctx.canvas.width]; // Random Y, X = canvas width
+    } else if (edge === 'top') {
+        return [0, Math.random() * this.ctx.canvas.width]; // Y = 0, Random X
+    } else if (edge === 'bottom') {
+        return [this.ctx.canvas.height, Math.random() * this.ctx.canvas.width]; // Y = canvas height, Random X
+    }
   }
   resetProperties () {
-    function ra(arr) {
-        const randomIndex = Math.floor(Math.random() * arr.length);
-        return arr[randomIndex];
-    }
-    const possibilities = [
-        [Math.random() * this.ctx.canvas.height, this.ctx.canvas.width], // Right edge
-        [Math.random() * this.ctx.canvas.height, 0],                    // Left edge
-        [this.ctx.canvas.height, Math.random() * this.ctx.canvas.width], // Bottom edge
-        [0, Math.random() * this.ctx.canvas.width]                       // Top edge
-    ];
-    return ra(possibilities);
+    const edges = ['left', 'right', 'top', 'bottom'];
+    const edge = edges[Math.floor(Math.random() * edges.length)];
+    return this.newPos(edge)
   }
 }
 var particleCount = 450;
