@@ -29,6 +29,7 @@ class Particles {
     this.size = 5;
     this.ctx = ctx;
     this.dir = dir;
+    this.mode = "out"
   }
   spawn () {
     this.ctx.fillStyle = "rgba(255,255,255,0.8)";
@@ -41,13 +42,17 @@ class Particles {
       const randomIndex = Math.floor(Math.random() * arr.length);
       return arr[randomIndex];
     }
-    this.x += this.dir[0] == '+' ? ra([1,2,3,4,5]) : -ra([1,2,3,4,5]);
-    this.y += this.dir[1] == '+' ? ra([1,2,3,4,5]) : -ra([1,2,3,4,5]);
-    if (this.x < 0 || this.x > this.ctx.canvas.width) {
-      this.dir[0] = this.dir[0] === '+' ? '-' : '+';
-    }
-    if (this.y < 0 || this.y > this.ctx.canvas.height) {
-      this.dir[1] = this.dir[1] === '+' ? '-' : '+';
+    let s1 = ra([1,2,3,4,5]), s2 = ra([1,2,3,4,5]), s3 = ra([1,2,3,4,5]), s4 = ra([1,2,3,4,5]);
+    this.x += this.dir[0] == '+' ? s1 : -s2;
+    this.y += this.dir[1] == '+' ? s3 : -s4;
+    if(this.mode == "bounce"){
+      if (this.x < 0 || this.x > this.ctx.canvas.width) {
+        this.dir[0] = this.dir[0] === '+' ? '-' : '+';
+      }
+      if (this.y < 0 || this.y > this.ctx.canvas.height) {
+        this.dir[1] = this.dir[1] === '+' ? '-' : '+';
+      }
+    } else {
     }
   }
 }
