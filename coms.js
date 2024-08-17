@@ -78,7 +78,7 @@ class Particles {
     return ra(possibilities);
   }
 }
-var particleCount = 150;
+var particleCount = 250;
 var particles = [];
 
 function spawnParticles () {
