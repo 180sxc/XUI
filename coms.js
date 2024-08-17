@@ -3,6 +3,7 @@ window.addEventListener('load', function() {
   htmlLoaded = true;
   startUp();
   resizeCanvas();
+  console.log("html loaded")
 })
 function startUp () {
   var canvas = document.getElementById("canvas")
