@@ -83,8 +83,8 @@ class Particles {
     } else {
       if ((this.x < 0 || this.x > this.ctx.canvas.width) || (this.y < 0 || this.y > this.ctx.canvas.height)) {
         if(particles.length > particleCount) return
-        this.x = this.resetProperties()[0];
-        this.y = this.resetProperties()[1];
+        this.x = this.resetProperties()[1];
+        this.y = this.resetProperties()[0];
         this.dir = [(Math.random() < 0.5?"+":"-"), (Math.random() < 0.5?"+":"-")];
         function ra(arr) {
           const randomIndex = Math.floor(Math.random() * arr.length);
