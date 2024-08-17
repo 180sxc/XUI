@@ -42,10 +42,10 @@ class Particles {
     this.x += this.dir[0] == '+' ? this.speed[0] : -this.speed[1];
     this.y += this.dir[1] == '+' ? this.speed[2] : -this.speed[3];
     if(this.mode == "bounce"){
-      if (this.x < 0 || this.x > this.ctx.canvas.width) {
+      if (this.x =< 0 || this.x >= this.ctx.canvas.width) {
         this.dir[0] = this.dir[0] === '+' ? '-' : '+';
       }
-      if (this.y < 0 || this.y > this.ctx.canvas.height) {
+      if (this.y =< 0 || this.y >= this.ctx.canvas.height) {
         this.dir[1] = this.dir[1] === '+' ? '-' : '+';
       }
     } else {
