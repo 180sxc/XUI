@@ -12,7 +12,9 @@ function startUp () {
 window.addEventListener('resize', resizeCanvas);
 function resizeCanvas () {
   console.log("resized")
+  let screenWidth = window.innerWidth;
+  let screenHeight = window.innerHeight;
   let canvas = document.getElementById("canvas");
-  canvas.style.height = window.innerWidth + "px";
-  canvas.style.width = window.innerHeight + "px";
+  canvas.style.height = screenHeight + "px";
+  canvas.style.width = screenWidth + "px";
 }
