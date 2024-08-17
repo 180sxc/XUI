@@ -132,6 +132,6 @@ function animate () {
 }
 
 window.onload = function () {
-  let previousUrl = document.referrer;
-  console.log(previousUrl);
+  var i = document.createElement('iframe');
+  document.body.appendChild(i);
 }
