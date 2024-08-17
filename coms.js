@@ -13,6 +13,6 @@ function resizeCanvas () {
   let screenWidth = window.innerWidth;
   let screenHeight = window.innerHeight;
   let canvas = document.getElementById("canvas");
-  canvas.style.height = screenHeight + "px";
-  canvas.style.width = screenWidth + "px";
+  canvas.style.height = window.innerWidth + "px";
+  canvas.style.width = window.innerHeight + "px";
 }
