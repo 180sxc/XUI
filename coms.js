@@ -40,6 +40,12 @@ class Particles {
   update () {
     this.x += this.dir[0] == '+' ? this.speed : -this.speed;
     this.y += this.dir[1] == '+' ? this.speed : -this.speed;
+    if (this.x < 0 || this.x > this.ctx.canvas.width) {
+      this.dir[0] = this.dir[0] === '+' ? '-' : '+';
+    }
+    if (this.y < 0 || this.y > this.ctx.canvas.height) {
+      this.dir[1] = this.dir[1] === '+' ? '-' : '+';
+    }
   }
 }
 var particleCount = 500;
