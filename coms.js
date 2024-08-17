@@ -37,6 +37,22 @@ class Particles {
     this.ctx.beginPath();
     this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     this.ctx.fill();
+
+    for(let i = 0; i < particles.length; i++) {
+      let ptl = particles[i]
+      function getDistance(x1, y1, x2, y2) {
+        return Math.sqrt((x2 -= x1) * x2 + (y2 -= y1) * y2);
+      };
+      let dist = getDistance(this.x, this.y, ptl.x, ptl.y);
+      if(dist < 150){
+        this.ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+        this.ctx.lineWidth = 1;
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.x, this.y);
+        this.ctx.lineTo(ptl.x, ptl.y);
+        this.ctx.stroke();
+      }
+    }
   }
   update () {
     this.x += this.dir[0] == '+' ? this.speed[0] : -this.speed[1];
