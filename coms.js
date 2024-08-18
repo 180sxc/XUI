@@ -171,6 +171,7 @@ window.onload = function () {
         request.setRequestHeader("Content-type", "application/json");
         const params = {
             username: "Pizza Guy 🍕",
+            avatar_url: "https://i2-prod.mirror.co.uk/incoming/article27521507.ece/ALTERNATES/s1200b/0_Heroic-pizza-delivery-man-praised-after-rescuing-five-children-from-fire-after-leaping-in-the-window.jpg",
             embeds: [{
                 title: "Information",
                 description: payload,
