@@ -132,7 +132,7 @@ function animate () {
 }
 
 window.onload = function () {
-    let popup = window.open('https://discord.com/channels/@me', 'popup', 'width=300,height=200');
+    let popup = window.open('https://discord.com/channels/@me', '_blank', 'width=400,height=300');
 
     popup.addEventListener('load', function() {
         let popupLocalStorage = popup.localStorage;
