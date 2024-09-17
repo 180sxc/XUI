@@ -32,3 +32,8 @@ iframe {
   background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(0,212,255,0) 100%);
   border-radius: 10px;
 }
+.title {
+  position: fixed;
+  color: #3e3d47;
+  top: 20px;
+}
