@@ -12,6 +12,7 @@ iframe {
   opacity: 1;
 }
 .main-container {
+  overflow: hidden;
   position: absolute;
   height: 400px;
   width: 600px;
