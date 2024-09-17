@@ -29,4 +29,6 @@ iframe {
   height: 100%;
   width: 200px;
   left: 0px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(0,212,255,0) 100%);
+  border-radius: 10px;
 }
