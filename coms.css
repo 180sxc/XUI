@@ -36,4 +36,6 @@ iframe {
   position: fixed;
   color: #3e3d47;
   top: 20px;
+  left: 10px;
+  font-size: 20px;
 }
