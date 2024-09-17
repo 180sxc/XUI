@@ -11,3 +11,14 @@ canvas {
 iframe {
   opacity: 1;
 }
+.main-container {
+  position: absolute;
+  height: 400px;
+  width: 600px;
+  background: #fff9e8;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -300px;
+  border-radius: 10px;
+}
