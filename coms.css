@@ -1,1 +1,16 @@
+body {
+  overflow: hidden;
+  background-color: #3A3960;
+  height: 100%;
+  width: 100%;
+}
+
+.start-up {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  font-size: 5px;
+  color: #5E686D;
+  cursor: wait;
+}
 
