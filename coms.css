@@ -12,5 +12,7 @@ body {
   font-size: 12px;
   color: #A9BFA8;
   cursor: wait;
+  font-family: "Fira Code", serif;
+  font-weight: 300;
 }
 
