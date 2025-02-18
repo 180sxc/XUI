@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (index < txt.length) {
           startup.innerHTML += txt[index];
           index++;
-          setTimeout(typeLetter(callback), 0);
+          setTimeout(typeLetter(callback), 0.5);
         } else {
           callback();
         }
