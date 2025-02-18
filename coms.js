@@ -23,8 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (index < txt.length) {
           startup.innerHTML += txt[index];
           index++;
-          let speed = Math.max(spd/txt.length, 2)
-          setTimeout(typeLetter, speed);
+          setTimeout(typeLetter, 0.5);
         }
       };
 
