@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
       setTimeout( () => {
         pushText(bootup[i][0])
       }, bootup[i][1])
-      if(index.length == bootup.length){
+      if(index == bootup.length){
         startup.style.display = "none";
       }
     }
