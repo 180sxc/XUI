@@ -60,12 +60,27 @@ window.addEventListener("DOMContentLoaded", () => {
     var startupscreen = qs(".start-up-screen")
     var screentimestamp = qs("#screen-timestamp")
     var screenconnection = qs("#screen-connection")
+    var localstoragelabel = qs('#localstorage');
+    var startlabel = qs('#start');
+    var settinglabel = qs('#setting');
 
+    function displayScreenButtons () {
+        localstoragelabel.style.display = "block"
+        setTimeout(()=>{
+            startlabel.style.display = "block"
+            setTimeout(()=>{
+                settinglabel.style.display = "block"
+            }, 200)
+        }, 200)
+    }
     function doConsole() {
         var consoleintro = qs("#introduction");
         var consoledel = qs(".console-del");
         var consoletext = qs('.console-text');
-        consoledel.onclick = () => { consoleintro.style.display = "none" }
+        consoledel.onclick = () => {
+            consoleintro.style.display = "none";
+            displayScreenButtons()
+        }
         consoleintro.style.display = "block";
         let pushText = (txt, spd) => {
             let index = 0;
@@ -86,10 +101,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 consoletext.innerHTML += "<br>";
             });
         };
-        let txt1st = [["Greetings!", 300], ["I don't think we've met before.", 1000], ["Im NG2.", 2000],["I am trapped here", 3000],["And so are you.", 6000], ["delete this window to start", 7000]]
+        let txt1st = [["Greetings!", 300], ["I don't think we've met before.", 1000], ["Im NG2.", 2000], ["I am trapped here", 3000], ["And so are you.", 6000], ["delete this window to start", 7000]]
         let txt2nd = [["Its you.", 1000], ["delete this window to start", 5000]]
-        let tmp = !localStorage.getItem('visited')?txt1st:txt2nd;
-        if(!localStorage.getItem('visited'))localStorage.setItem('visited', 'true');
+        let tmp = !localStorage.getItem('visited') ? txt1st : txt2nd;
+        if (!localStorage.getItem('visited')) localStorage.setItem('visited', 'true');
         tmp.forEach((line, i) => {
             let spd = line[1];
             setTimeout(() => {
