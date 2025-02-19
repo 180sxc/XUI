@@ -4,14 +4,15 @@
     --col3: #A9BFA8;
     --col4: #FAFFC5;
 }
+
 body {
     overflow: hidden;
     background-color: var(--col1);
     height: 100%;
     width: 100%;
-  }
-  
-  .start-up {
+}
+
+.start-up {
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -22,9 +23,9 @@ body {
     font-weight: 300;
     text-shadow: 0 0 8px rgba(lighten(#A9BFA8, 50%), 0.3);
     overflow: hidden;
-  }
+}
 
-  .start-up-title {
+.start-up-title {
     position: fixed;
     top: 40%;
     left: 50%;
@@ -36,8 +37,9 @@ body {
     opacity: 0;
     transition: 0.6s;
     animation: glitch 2s linear infinite;
-  }
-  @keyframes glitch {
+}
+
+@keyframes glitch {
 
     2%,
     64% {
@@ -106,9 +108,9 @@ body {
         transform: translate(-22px, 5px) skew(21deg);
     }
 }
-  
 
-  .title-text {
+
+.title-text {
     color: var(--col3);
     font-family: "Zen Dots", serif;
     font-size: 90px;
@@ -116,9 +118,9 @@ body {
     padding-top: 9px;
     transition: 0.6s;
     opacity: 0;
-  }
+}
 
-  .start-up-screen {
+.start-up-screen {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -130,8 +132,9 @@ body {
     animation: openScreen 2.5s ease-in-out;
     display: none;
     border-radius: 25px 0px 25px 0px;
-  }
-  @keyframes openScreen {
+}
+
+@keyframes openScreen {
     0% {
         top: 40%;
         opacity: 0;
@@ -140,6 +143,7 @@ body {
         margin-left: -50px;
         width: 100px;
     }
+
     20% {
         top: 50%;
         height: 0px;
@@ -147,37 +151,47 @@ body {
         margin-left: -300px;
         width: 600px;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         height: 400px;
         margin-top: -200px;
     }
-  }
-  .screen-attr {
+}
+
+.screen-attr {
     color: var(--col3);
     font-family: "Fira Code", serif;
     transition: 0.3s;
     padding-left: 10px;
     animation: fadeIn 0.6s ease-in-out;
     display: none;
-  }
+}
 
-  @keyframes fadeIn {
-    0% {opacity: 0}
-    100% {opacity: 1}
-  }
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
 
-  #screen-timestamp {
+    100% {
+        opacity: 1
+    }
+}
+
+#screen-timestamp {
     padding-top: 10px;
-  }
-  #screen-battery {
+}
+
+#screen-battery {
     position: absolute;
     right: 10px;
     top: 10px;
-  }
-  .console {
+}
+
+.console {
     background: var(--col3);
     height: 200px;
     width: 250px;
@@ -188,14 +202,16 @@ body {
     left: 300px;
     animation: fadeIn 0.1s ease-in-out;
     display: none;
-  }
-  .console-button-section {
+}
+
+.console-button-section {
     border-bottom: 1px solid var(--col2);
     width: 100%;
     height: 25px;
     overflow: hidden;
-  }
-  .console-label {
+}
+
+.console-label {
     top: 7px;
     padding-left: 100px;
     font-family: "Fira Code", serif;
@@ -203,8 +219,9 @@ body {
     font-size: 12px;
     text-align: center;
     color: var(--col1);
-  }
-  .console-del {
+}
+
+.console-del {
     width: 30px;
     height: 25px;
     position: absolute;
@@ -216,13 +233,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center
-  }
-  .console-del:hover {
+}
+
+.console-del:hover {
     background: var(--col2);
     color: var(--col3);
     transition: 0.1s;
-  }
-  .console-text {
+}
+
+.console-text {
     width: 100%;
     position: absolute;
     height: 170px;
@@ -233,4 +252,62 @@ body {
     font-size: 10px;
     color: var(--col1);
     outline: none;
-  }
+}
+
+.screen-button {
+    color: var(--col3);
+    font-size: 50px;
+    position: fixed;
+    top: 50%;
+    height: 90px;
+    width: 80px;
+    left: 50%;
+    text-align: center;
+    padding-top: 10px;
+    transition: 0.4s;
+    border: 1px solid rgb(250, 255, 197, 0.0);
+}
+
+.screen-button:hover {
+    background-color: rgb(250, 255, 197, 0.2);
+    border: 1px solid rgb(250, 255, 197, 0.4);
+}
+
+#setting.screen-button {
+    margin-left: 200px;
+    animation: fadeIn 0.5s ease-in-out;
+    display: none;
+}
+
+#start.screen-button {
+    margin-left: 100px;
+    animation: fadeIn 0.5s ease-in-out;
+    display: none;
+}
+
+#localstorage.screen-button {
+    animation: fadeIn 0.5s ease-in-out;
+    display: none;
+}
+
+.button-label {
+    font-size: 12px;
+    font-family: "Fira Code", serif;
+    overflow: visible;
+    position: absolute;
+    text-align: center;
+    top: 70px;
+    left: 50%;
+}
+
+#localstoragelabel {
+    margin-left: -24px;
+}
+
+#startlabel {
+    margin-left: -30px;
+}
+
+#settinglabel {
+    margin-left: -26px;
+}
