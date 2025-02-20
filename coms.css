@@ -311,3 +311,16 @@ body {
 #settinglabel {
     margin-left: -26px;
 }
+
+.screen-idk {
+    transition: 0.5s;
+    animation: fadeIn 0.5s ease-in-out;
+    position: absolute;
+    min-height: 100px;
+    min-width: 100px;
+    top: 170px;
+    left: 40px;
+    color: var(--col3);
+    font-family: "Fira Code", serif;
+    font-size: 5px;
+}
